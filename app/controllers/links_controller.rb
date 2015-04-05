@@ -3,6 +3,18 @@ class LinksController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   before_action :authorized_user, only: [:edit, :update, :destroy]
 
+  def upvote 
+    @link = Link.find(params[:id])
+    @link.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote 
+    @link = Link.find(params[:id])
+    @link.upvote_by current_user
+    redirect_to :back
+  end
+  
   # GET /links
   # GET /links.json
   def index
