@@ -6,6 +6,10 @@
 	<%= link_to 'Visit URL', @link.url, class: "btn btn-primary" %>
 </div>
 
+<h1><a href="<%= @link.url %>"><%= @link.title %></a><br> <small>Submitted by <%= @link.user.name %>
+</small></h1>
+
+
 <div class="btn-group pull-right">
   <%= link_to like_link_path(@link), method: :put, class: "btn btn-default btn-sm" do %>
     <span class="glyphicon glyphicon-chevron-up"></span>
